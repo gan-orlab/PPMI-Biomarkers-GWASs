@@ -34,7 +34,7 @@ do
     awk '{print $1}' ppmi_hg38_pdhc_noindels.fam > pdhc_grep.txt
     awk '{print $1}' prgn_hg38_sc_pdhc_noindels.fam > progen_grep.txt
     grep -f pdhc_grep.txt phenos_new/${line}.txt > biomarker_data.txt
-    R < distribution_temp.R --no-save
+    R < distributions.R --no-save
     mv bio_hist.tiff pdhc/distribution_data/hist_pdhc_${line}.tiff
     paste shapiro.txt >> pdhc/distribution_data/shapiro_pdhc_all.txt
  
@@ -92,13 +92,13 @@ do
 
     # Run for pdhc
     grep -f pdhc_grep.txt phenos_new/${line}.txt > biomarker_data.txt
-    R < distribution_temp.R --no-save
+    R < distributions.R --no-save
     mv bio_hist.tiff pdhc/distribution_data/hist_pdhc_${line}.tiff
     paste shapiro.txt >> pdhc/distribution_data/shapiro_pdhc_all.txt
 
     # Run for progen
     grep -f progen_grep.txt phenos_new/${line}.txt > biomarker_data.txt
-    R < distribution_temp.R --no-save
+    R < distributions.R --no-save
     mv bio_hist.tiff progen/distribution_data/hist_prgn_${line}.tiff
     paste shapiro.txt >> progen/distribution_data/shapiro_prgn_all.txt
 
